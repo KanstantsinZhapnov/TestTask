@@ -1,23 +1,32 @@
 package by.epam.cdptr.Test;
 
+import java.util.Random;
+
 public class Task4 {
     public static void main(String[] args) {
-        boolean result = false;
-        int place = 0;
+        boolean result;
+        int place;
+        int massiveValue;
+
+        ReadInput read = new ReadInput();
+
+        massiveValue = read.getInteger("Enter Massive value: ");
 
         int[] mas;
-        mas = new int[5];
-        mas[0] = 1;
-        mas[1] = 2;
-        mas[2] = 3;
-        mas[3] = 4;
-        mas[4] = 5;
+        mas = new int[massiveValue];
+
+        for (int i = 0; i < massiveValue; i++) {
+            Random random = new Random();
+            mas[i] = random.nextInt();
+            System.out.println(mas[i]);
+        }
 
 
-        for (int i = 0; i < 5; i++) {
+
+        for (int i = 0; i < massiveValue; i++) {
             PrimeNumber prime = new PrimeNumber();
             result = prime.IsPrimeNumber(mas[i]);
-            if (result = true) {
+            if (result) {
                 place = i+1;
                 System.out.print(place + "; ");
             }
