@@ -2,16 +2,17 @@ package by.epam.cdptr.Task5;
 
 public class Basket {
 
-    public void getBalls() {
-        Ball ball = new Ball();
+    private Ball[] balls;
 
-        String color;
-        color = ball.getColor();
+    public Basket() {
 
-        double weight;
-        weight = ball.getWeight();
     }
 
+    public Basket(Ball[] balls) {
+        this.balls = balls;
+    }
 
-
+    public Ball[] getBalls() {
+        return balls;
+    }
 }

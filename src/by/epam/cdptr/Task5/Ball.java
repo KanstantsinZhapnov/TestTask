@@ -1,28 +1,42 @@
 package by.epam.cdptr.Task5;
 
-import java.util.Random;
+
+import java.util.Objects;
 
 public class Ball {
 
+    private String color;
+    private double weight;
+
+    public Ball() {
+
+    }
+
+    public Ball(String _color, double _weight) {
+        this.color = _color;
+        this.weight = _weight;
+    }
+
     public String getColor() {
-        String color = "";
-
         return color;
-
     }
 
     public double getWeight() {
-
-        double weight = 1.1;
         return weight;
-
     }
 
-    public boolean isInBucket() {
-        boolean isInBasket;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Ball ball = (Ball) o;
+        return Double.compare(ball.weight, weight) == 0 &&
+                Objects.equals(color, ball.color);
+    }
 
-        Random random = new Random();
+    @Override
+    public int hashCode() {
 
-        isInBasket = random.nextBoolean();
+        return Objects.hash(color, weight);
     }
 }
